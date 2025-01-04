@@ -1,7 +1,7 @@
 
 Este script automatiza a instalação e configuração do NetTime, um serviço que substitui o Time Provider padrão do Windows. Ele configura o NetTime para sincronizar o horário do sistema usando os servidores NTP do Brasil.
 
-Como Funciona
+Como Funciona:
 Baixa a versão mais recente do instalador do NetTime.
 Instala o NetTime silenciosamente como um serviço do Windows.
 Configura os servidores NTP brasileiros no arquivo NetTime.ini:
