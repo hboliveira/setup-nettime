@@ -1,18 +1,18 @@
 @echo off
 sc query NetTimeSvc >nul 2>&1
 if %errorlevel% equ 0 (
-    echo O serviço NetTimeSvc existe.
+    echo O servico NetTimeSvc existe.
     sc query NetTimeSvc | findstr /i "RUNNING" >nul
     if %errorlevel% equ 0 (
-        echo O serviço NetTimeSvc já está em execução.
+        echo O servico NetTimeSvc ja esta em execucao.
         exit /b 0
     ) else (
-        echo O serviço NetTimeSvc está parado. Iniciando...
+        echo O servico NetTimeSvc esta parado. Iniciando...
         net start NetTimeSvc
         exit /b 0
     )
 ) else (
-    echo O serviço NetTimeSvc não existe. Continuando com a instalação...
+    echo O servico NetTimeSvc nao existe. Continuando com a instalacao...
 )
 
 curl -o "%TEMP%\NetTimeSetup.exe" https://www.timesynctool.com/NetTimeSetup-314.exe
