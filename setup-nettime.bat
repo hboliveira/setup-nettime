@@ -1,16 +1,16 @@
 @echo off
+
+sc query NetTimeSvc | findstr /i "RUNNING" >nul
+if %errorlevel% equ 0 (
+    echo O servico NetTimeSvc ja esta em execucao.
+    exit /b 0
+)
+
 sc query NetTimeSvc >nul 2>&1
 if %errorlevel% equ 0 (
-    echo O servico NetTimeSvc existe.
-    sc query NetTimeSvc | findstr /i "RUNNING" >nul
-    if %errorlevel% equ 0 (
-        echo O servico NetTimeSvc ja esta em execucao.
-        exit /b 0
-    ) else (
-        echo O servico NetTimeSvc esta parado. Iniciando...
-        net start NetTimeSvc
-        exit /b 0
-    )
+    echo O servico NetTimeSvc existe, mas esta parado. Iniciando...
+    net start NetTimeSvc
+    exit /b 0
 ) else (
     echo O servico NetTimeSvc nao existe. Continuando com a instalacao...
 )
